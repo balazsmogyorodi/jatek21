@@ -1,4 +1,4 @@
-""" A fő program"""
+""" Megoldás"""
 
 
 def eredmeny():
