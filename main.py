@@ -2,13 +2,11 @@
 
 
 
-def eredmeny():
-        jatekos = 8
-        gep = 8
-        if jatekos > gep:
+def eredmeny(jatekosPontok, gepPontok):
+        if jatekosPontok > 21:
                 return "Játékos gyözött"
-        elif gep > jatekos:
-                return "Gép gyözött"
+        elif gepPontok > 21:
+                return "Játékos vesztett"
         else:
                 return "Döntetlen"
         """tesztesetek"""
