@@ -32,6 +32,16 @@ def eredmeny(jatekosLapok: [int], gepLapok: [int]):
 
 
 def jatekosVezstettTeszt():
+        jatekosLista = [10, 6, 8]
+        gepLista = [6, 10]
+        kapott = eredmeny(jatekosLista, gepLista)
+        vart = "Játékos vesztett"
+        if kapott == vart:
+                print("A teszt sikeres")
+        else:
+                print("A teszt megbukott")
+
+def jatekosVezstettEgyenloTeszt():
         jatekosLista = [10, 3, 3]
         gepLista = [6, 10]
         kapott = eredmeny(jatekosLista, gepLista)
@@ -43,6 +53,7 @@ def jatekosVezstettTeszt():
 
 def tesztek():
         jatekosVezstettTeszt()
+        jatekosVezstettEgyenloTeszt()
 
 
 tesztek()
