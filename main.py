@@ -1,29 +1,28 @@
 """ Megoldás"""
 
 
-def pontszamitas(jatekosLapok, gepLapok):
-        jatekosPontok = 0
-        gepPontok = 0
-        eredmenyek = []
-        for i in range(len(jatekosLapok)):
-                jatekosPontok += jatekosLapok[i]
-        eredmenyek.append(jatekosPontok)
-        for i in range(len(gepLapok)):
-                gepPontok += gepLapok[i]
-        eredmenyek.append(gepPontok)
-        return eredmenyek
 
-def eredmeny(jatekosPontok, gepPontok):
-        if jatekosPontok > 21:
+
+
+
+def pontszamitas(lapok: [int]):
+        pontok: int = 0
+        for i in range(len(lapok)):
+                pontok += lapok[i]
+        return pontok
+
+def eredmeny(jatekosLapok: [int], gepLapok: [int]):
+        jatekosPontok = pontszamitas(jatekosLapok)
+        gepPontok = pontszamitas(gepLapok)
+        if jatekosPontok > 21 or jatekosPontok < gepPontok:
                 return "Játékos vesztett"
-        elif gepPontok > 21:
+        elif gepPontok > 21 or jatekosPontok > gepPontok:
                 return "Játékos gyözött"
         else:
                 return "Döntetlen"
-        """tesztesetek"""
 
-eredmenyek = pontszamitas()
-jatekosPontok = eredmenyek[0]
-gepPontok = eredmenyek[1]
-eredmeny(jatekosPontok, gepPontok)
+
+"""tesztesetek"""
+
+
 
