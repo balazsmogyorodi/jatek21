@@ -14,15 +14,10 @@ def pontszamitas(lapok: [int]):
 def eredmeny(jatekosLapok: [int], gepLapok: [int]):
         jatekosPontok = pontszamitas(jatekosLapok)
         gepPontok = pontszamitas(gepLapok)
-        if jatekosPontok > 21 or jatekosPontok < gepPontok:
+        if jatekosPontok > 21:
                 szoveg = "Játékos vesztett"
-        elif gepPontok > 21 or jatekosPontok > gepPontok:
+        elif gepPontok > 21:
                 szoveg = "Játékos gyözött"
-        elif jatekosPontok == gepPontok:
-                if len(jatekosLapok) > len(gepLapok):
-                        szoveg = "Játékos vesztett"
-                elif len(jatekosLapok) < len(gepLapok):
-                        szoveg = "Játékos gyözött"
         else:
                 szoveg = "Döntetlen"
         return szoveg
@@ -31,7 +26,7 @@ def eredmeny(jatekosLapok: [int], gepLapok: [int]):
 """tesztesetek"""
 
 
-def jatekosVezstettTeszt():
+def jatekosVezstettTulmentTeszt():
         jatekosLista = [10, 6, 8]
         gepLista = [6, 10]
         kapott = eredmeny(jatekosLista, gepLista)
@@ -50,10 +45,78 @@ def jatekosVezstettEgyenloTeszt():
                 print("A teszt sikeres")
         else:
                 print("A teszt megbukott")
+def jatekosVezstettKisebbTeszt():
+        jatekosLista = [10, 3]
+        gepLista = [6, 10]
+        kapott = eredmeny(jatekosLista, gepLista)
+        vart = "Játékos vesztett"
+        if kapott == vart:
+                print("A teszt sikeres")
+        else:
+                print("A teszt megbukott")
+
+def gepVezstettKisebbTeszt():
+        jatekosLista = [10, 6]
+        gepLista = [3, 10]
+        kapott = eredmeny(jatekosLista, gepLista)
+        vart = "Játékos gyözött"
+        if kapott == vart:
+                print("A teszt sikeres")
+        else:
+                print("A teszt megbukott")
+
+def gepVezstettTulmentTeszt():
+        jatekosLista = [10, 6]
+        gepLista = [10, 6, 8]
+        kapott = eredmeny(jatekosLista, gepLista)
+        vart = "Játékos gyözött"
+        if kapott == vart:
+                print("A teszt sikeres")
+        else:
+                print("A teszt megbukott")
+
+def gepVezstettEgyenloTeszt():
+        jatekosLista = [10, 6]
+        gepLista = [10, 3, 3]
+        kapott = eredmeny(jatekosLista, gepLista)
+        vart = "Játékos gyözött"
+        if kapott == vart:
+                print("A teszt sikeres")
+        else:
+                print("A teszt megbukott")
+
+def dontetlenTulment():
+        jatekosLista = [10, 6, 7]
+        gepLista = [10, 3, 3, 8]
+        kapott = eredmeny(jatekosLista, gepLista)
+        vart = "Döntetlen"
+        if kapott == vart:
+                print("A teszt sikeres")
+        else:
+                print("A teszt megbukott")
+
+def dontetlenEgyelo():
+        jatekosLista = [10, 3]
+        gepLista = [10, 3]
+        kapott = eredmeny(jatekosLista, gepLista)
+        vart = "Döntetlen"
+        if kapott == vart:
+                print("A teszt sikeres")
+        else:
+                print("A teszt megbukott")
+
+
+
 
 def tesztek():
-        jatekosVezstettTeszt()
+        jatekosVezstettTulmentTeszt()
         jatekosVezstettEgyenloTeszt()
+        jatekosVezstettKisebbTeszt()
+        gepVezstettKisebbTeszt()
+        gepVezstettTulmentTeszt()
+        gepVezstettEgyenloTeszt()
+        dontetlenTulment()
+        dontetlenEgyelo()
 
 
 tesztek()
