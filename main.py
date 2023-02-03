@@ -18,6 +18,11 @@ def eredmeny(jatekosLapok: [int], gepLapok: [int]):
                 szoveg = "Játékos vesztett"
         elif gepPontok > 21 or jatekosPontok > gepPontok:
                 szoveg = "Játékos gyözött"
+        elif jatekosPontok == gepPontok:
+                if len(jatekosLapok) > len(gepLapok):
+                        szoveg = "Játékos vesztett"
+                elif len(jatekosLapok) < len(gepLapok):
+                        szoveg = "Játékos gyözött"
         else:
                 szoveg = "Döntetlen"
         return szoveg
@@ -27,8 +32,8 @@ def eredmeny(jatekosLapok: [int], gepLapok: [int]):
 
 
 def jatekosVezstettTeszt():
-        jatekosLista = [10, 3, 2, 7]
-        gepLista = [6, 4, 3]
+        jatekosLista = [10, 3, 3]
+        gepLista = [6, 10]
         kapott = eredmeny(jatekosLista, gepLista)
         vart = "Játékos vesztett"
         if kapott == vart:
